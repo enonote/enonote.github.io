@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link href="css/reset.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/common.css" media="screen" rel="stylesheet" type="text/css" />
+
+	<script src='js/jquery-1.6.1.min.js' type='text/javascript'></script>
+	<script src='js/jquery-ui-1.8.13.custom.min.js' type='text/javascript'></script>
+	<script src='js/jquery.beforeafter-1.4.min.js' type='text/javascript'></script>
+
+	<script type='text/javascript'>
+		$(function(){
+			$("#container").beforeAfter({
+			"beforeLinkText": "AO:OFF",
+			"afterLinkText": "AO:HBAO+"
+			});
+		});
+	</script>
+
+</head>
+
+<body>
+	<h3>AOî‰ärÅiOFF vs HBAO+Åj<h3>
+	<div id="container">
+		<div>
+		<img alt="before" src="./img/01_off.jpg" style="max-width:1280px;max-height:720px;"/>
+		</div>
+		<div>
+			<img alt="after" src="./img/03_hbao.jpg" style="max-width:1280px;max-height:720px;"/>
+		</div>
+	</div>
+</body>
+</html>
