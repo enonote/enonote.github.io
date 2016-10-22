@@ -12,8 +12,7 @@
 	<script type='text/javascript'>
 		$(function(){
 			$("#container").beforeAfter({
-			"beforeLinkText": "AO:OFF",
-			"afterLinkText": "AO:HBAO+"
+			showFullLinks:false
 			});
 		});
 	</script>
@@ -21,14 +20,15 @@
 </head>
 
 <body>
-	<h3>AO比較（OFF vs HBAO+）<h3>
+	<div class="beforeafter_title">AO比較（OFF vs HBAO+）</div>
 	<div id="container">
 		<div>
-		<img alt="before" src="./img/01_off.jpg" style="max-width:1280px;max-height:720px;"/>
+		<img alt="before" src="./img/01_off.jpg" style="max-width:1280px;"/>
 		</div>
 		<div>
-			<img alt="after" src="./img/03_hbao.jpg" style="max-width:1280px;max-height:720px;"/>
+			<img alt="after" src="./img/03_hbao.jpg" style="max-width:1280px;"/>
 		</div>
 	</div>
+
 </body>
 </html>

@@ -8,3 +8,20 @@ h3 {
     font-size: 1.17em;
     font-weight: bold;
 }
+
+.beforeafter_title{
+	position:absolute;
+	top:0px;
+	z-index:30;
+	font-size: 1.10em;
+	padding:4px;
+	font-weight:bold;
+	background-color:#fefdfa;
+	border:solid 1px #aab123;
+	border:solid 1px #303030;
+	color:#d52a33;
+
+}
+
+
+
