@@ -341,7 +341,6 @@ var DownloadPopupUtil = (function(){
 
 // 検索結果からBookInfoListを作成
 var onClickDlAllButton = function (){
-  alert("call onClickDlAllButton");
   let dfd = $.Deferred();
   // 検索結果を解析してBookInfoオブジェクトを作成
   let bookInfoList = BookListUtil.parseListContainer();
