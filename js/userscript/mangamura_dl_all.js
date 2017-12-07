@@ -323,6 +323,9 @@ var DownloadPopupUtil = (function(){
     // ダウンロードアンカータグ作成
     function createDlLinkTag(url,title,page){
       var elm = document.createElement("a");
+      
+      title = titleFormatting(title);
+      
       elm.setAttribute("href",url);
       elm.setAttribute("download",getSaveFileName(title,page));
       elm.textContent = title + "["+ (("0000" + page).slice(-4)) +"]";
@@ -332,6 +335,23 @@ var DownloadPopupUtil = (function(){
       function getSaveFileName(title,page){
         var page = ("0000" + page).slice(-4);
         return title + "_" + page + ".jpg";
+      }
+
+      // タイトル整形
+      function titleFormatting(title){
+
+        let result = removeSpace(toHalfChar(title));
+  
+        return result;
+
+        function toHalfChar(str){
+          return str.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function(s) {
+            return String.fromCharCode(s.charCodeAt(0) - 65248);
+          }).replace(/　/g," ").replace(/[（【]/g,"(").replace(/[）】]/g,")");
+        }
+        function removeSpace(str){
+          return str.replace(/\s+/g," ").trim();
+        }
       }
     }
 
