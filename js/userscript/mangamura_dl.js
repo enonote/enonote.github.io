@@ -1,5 +1,5 @@
 // Require jQuery2.2.4
-// Require BookInfoClass
+// Require mangamura_bookinfo_class.js
 
 //１．検索結果一覧取得
 // hrefからBookIDを抽出する正規表現
@@ -213,8 +213,9 @@ var DownloadPopupUtil = (function(){
     // ダウンロードポップアップを開く
     function openDlPopup(e){
       
- 	    // ダウンロードポップアップ生成
-	    let winDlPopup = window.open("","","width=600, height=400, menubar=yes, toolbar=yes, scrollbars=yes");
+       // ダウンロードポップアップ生成
+      let winDlPopup = window.open("","","width=600, height=400, menubar=yes, toolbar=yes, scrollbars=yes");
+      winDlPopup.document.body.appendChild(createReferer());
 
       if( typeof bookInfo === "function" ){
         // bookInfoが関数の場合(BookInfoClassのオブジェクトを返すこと)
@@ -242,6 +243,13 @@ var DownloadPopupUtil = (function(){
       }
       
     }
+    
+    function createReferer(){
+      let tag = document.createElement("script");
+      tag.textContent = "Object.defineProperty(document,\"referrer\",{value:\"http://mangamura.org/\"})";
+      return tag;
+    }
+
     function removeDlLinks(winDlPopup){
       let linkContainer = winDlPopup.document.getElementsByClassName("linkContainer");
       for( let i=linkContainer.length -1 ; i >= 0 ; i-- ){
@@ -249,9 +257,9 @@ var DownloadPopupUtil = (function(){
       }
     }
     function createDlLinks(bookInfoList){
-	    let tagDiv = document.createElement("div");
-	    tagDiv.setAttribute("class","linkContainer");
-	    tagDiv.setAttribute("style","background-color:FFC;");
+      let tagDiv = document.createElement("div");
+      tagDiv.setAttribute("class","linkContainer");
+      tagDiv.setAttribute("style","background-color:FFC;");
       for( let bookInfo of bookInfoList ){
         tagDiv.appendChild(createBookDlLink(bookInfo));
       }
@@ -261,12 +269,12 @@ var DownloadPopupUtil = (function(){
     function createBookDlLink(bookInfo){
 
       // ダウンロードリンク領域生成
-	  let tagDiv = document.createElement("div");
-	  tagDiv.setAttribute("class","bookLinks");
-	  tagDiv.setAttribute("style","background-color:FFC;");
+      let tagDiv = document.createElement("div");
+      tagDiv.setAttribute("class","bookLinks");
+      tagDiv.setAttribute("style","background-color:FFC;");
 
- 	  var tagH1 = document.createElement("h1");
-	  tagH1.textContent = bookInfo.bookTitle;
+      var tagH1 = document.createElement("h1");
+      tagH1.textContent = bookInfo.bookTitle;
       tagDiv.appendChild(tagH1);
 
       let page = 1;
