@@ -68,21 +68,21 @@ class BookInfo {
 
     // VIEWERページのHTMLを取得し、KEYを抽出
     function _getRequestKey(bookId){
-
+      console.log("DEBUG: _getRequestKey bookId = "+bookId);
       var dfd = $.Deferred();
-
-        var datas = $.ajax({
+      
+      var datas = $.ajax({
             type: 'GET',
             datatype: 'html',
             url: "http://mangamura.org/kai_pc_viewer?p=" + bookId
         }).done(function(data){
-            var obj = parseViewerPage(data);
-            if(obj != null){
+            console.log("DEBUG: _getRequestKey done");
+            parseViewerPage(data,bookId).done(function(obj){
                 dfd.resolve(obj.key);
-            }else{
+            }).fail(function(){
                 console.log("ERROR：リクエストキーの取得に失敗");
                 dfd.reject();
-            }
+            });
         }).fail(function(){
             console.log("ERROR：ビュワーの取得に失敗");
             dfd.reject();
@@ -92,16 +92,52 @@ class BookInfo {
         return dfd.promise();
 
         // 取得したHTMLからKEYを抽出
-        function parseViewerPage(htmlStr){
-            var ptn = /<div\s+id="([A-z0-9]{13,13})"\s+class="(.*?)".*>/m;
-            var r = htmlStr.match(ptn);
-            if(r){
-                return {"id": r[1] , "key": r[2]};
-            }
-            return null;
-        }
+        function parseViewerPage(htmlStr,bookId){
+          var dfd = $.Deferred();
+          
+          console.log("DEBUG: parseViewerPage");
+          console.log(htmlStr);
 
+          console.log("DEBUG: parseViewerPage send getRequestKey request.");
+          $.ajax({
+            url: "http://mangamura.org/pages/getxb",
+            type: 'get',
+            dataType: 'text',
+            contentType: 'application/json; charset=utf-8',
+            scriptCharset: 'utf-8',
+            data:{
+              wp_id: bookId
+            }
+          }).done(function(data){
+            console.log("DEBUG: parseViewerPage done");
+
+            // データチェック
+            var r = data.match(/([A-z0-9]{13,13})/);
+            console.log(r);
+            if( r ){
+              dfd.resolve({"id": bookId, "key": data});
+            }else{
+              console.log("ERROR: parseViewerPage データチェックエラー");
+              dfd.reject();
+            }
+            
+          }).fail(function(){
+            console.log("DEBUG: parseViewerPage リクエストキーの取得に失敗");
+            dfd.reject();
+          });
+
+          // 10秒でタイムアウト
+          setTimeout(function(){
+            if( dfd.state() == "pending" ){
+              alert("ERROR: parseViewerPage リクエストがタイムアウト");
+              dfd.resolve();
+            }
+          },1000*60);
+          
+          return dfd.promise();
+        }
     }
+
     // ファイル一覧取得リクエスト送信
     function _getFileList(bookId,key){
         var dfd = $.Deferred();
