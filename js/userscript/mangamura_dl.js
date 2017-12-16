@@ -215,7 +215,7 @@ var DownloadPopupUtil = (function(){
       
        // ダウンロードポップアップ生成
       let winDlPopup = window.open("","","width=600, height=400, menubar=yes, toolbar=yes, scrollbars=yes");
-      winDlPopup.document.body.appendChild(createReferer());
+      winDlPopup.document.head.appendChild(createReferer());
 
       if( typeof bookInfo === "function" ){
         // bookInfoが関数の場合(BookInfoClassのオブジェクトを返すこと)
