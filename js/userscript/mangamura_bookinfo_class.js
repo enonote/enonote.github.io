@@ -2,10 +2,16 @@
 
 // BookInfoクラス
 class BookInfo {
-  constructor(){
-    this._bookId = "";
-    this._bookTitle = "";
-    this._fileUrlList = [];
+  constructor(obj){
+    if( obj ){
+      this._bookId = obj["_bookId"];
+      this._bookTitle = obj["_bookTitle"];
+      this._fileUrlList = obj["_fileUrlList"];
+    }else{
+      this._bookId = "";
+      this._bookTitle = "";
+      this._fileUrlList = [];
+    }
   }
   set bookId(bookId){
     this._bookId = bookId;
