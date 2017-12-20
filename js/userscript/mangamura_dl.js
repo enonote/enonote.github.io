@@ -215,7 +215,6 @@ var DownloadPopupUtil = (function(){
       
        // ダウンロードポップアップ生成
       let winDlPopup = window.open("","","width=600, height=400, menubar=yes, toolbar=yes, scrollbars=yes");
-      winDlPopup.document.head.appendChild(createReferer());
 
       if( typeof bookInfo === "function" ){
         // bookInfoが関数の場合(BookInfoClassのオブジェクトを返すこと)
@@ -242,12 +241,6 @@ var DownloadPopupUtil = (function(){
         console.log("ERROR: 未対応の形式");
       }
       
-    }
-    
-    function createReferer(){
-      let tag = document.createElement("script");
-      tag.textContent = "Object.defineProperty(document,\"referrer\",{value:\"http://mangamura.org/\"})";
-      return tag;
     }
 
     function removeDlLinks(winDlPopup){
