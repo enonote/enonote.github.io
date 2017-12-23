@@ -80,6 +80,7 @@ class DownloadModalWindow {
     let container    = ( param["container"]    || document.body );
     let downloadInfo = ( param["downloadInfo"] || [] );
     
+    this._removeDownloadButtonElement(buttonId);
     let btnElm = this._createDownloadButtonElement( buttonId ,buttonClass ,buttonTitle );
     container.appendChild( btnElm );
     
@@ -177,6 +178,12 @@ class DownloadModalWindow {
     
     container.appendChild(elm);
     return container;
+  }
+  _removeDownloadButtonElement( buttonId ){
+    let elm = document.getElementById(buttonId);
+    if( elm ){
+      elm.parentNode.removeChild(elm);
+    }
   }
   _createDownloadButtonElement( buttonId ,buttonClass ,buttonTitle ){
     let btnContainer = document.createElement("p");
