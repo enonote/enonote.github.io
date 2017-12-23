@@ -7,8 +7,8 @@
  *   + ListItem
  *       + ItemDetail : 行の詳細
  */
-const PTN_HREF_BOOKID = { "pattern": /.*?p=(.*)/ ,"index": 1 };
 var BookListUtil = (function(){
+  var PTN_HREF_BOOKID = { "pattern": /.*?p=(.*)/ ,"index": 1 };
   return {
     // リストコンテナを解析し、BookInfoの配列を返す
     parseListContainer: function(){
