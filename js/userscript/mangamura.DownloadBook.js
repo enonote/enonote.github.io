@@ -34,7 +34,7 @@ function onPageLoaded(){
   let modalWin = new DownloadModalWindow();
   modalWin.createDownloadButton({
     "buttonClass": "bookLinks",
-     "container" : document.getElementById("sorttab2") ,
+    "container"  : document.getElementById("sorttab2") ,
     "downloadInfo": function(){
       return new Promise((resolve,reject)=>{
         createBookInfoList().success(function(data){
