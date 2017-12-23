@@ -9,11 +9,15 @@
   background: white;
 }
 
-.BookDownloadBtn {
+.BookDownloadBtn > a {
+  width: 100%;
+  display: block;
+  text-align: center;
+
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #050505;
-	padding: 10px 20px;
+	padding: 5px 20px;
 	background: -moz-linear-gradient(
 		top,
 		#f7ff00 0%,
@@ -22,16 +26,8 @@
 		linear, left top, left bottom,
 		from(#f7ff00),
 		to(#ffbf00));
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	border: 3px solid #000000;
-	-moz-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.7);
-	-webkit-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.7);
 	box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
 		inset 0px 0px 1px rgba(255,255,255,0.7);
@@ -40,10 +36,7 @@
 		0px 1px 0px rgba(255,255,255,0.3);
 }
 .BookDownloadBtn:hover {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
 	color: #050505;
-	padding: 10px 20px;
 	background: -moz-linear-gradient(
 		top,
 		#fdff73 0%,
@@ -52,22 +45,6 @@
 		linear, left top, left bottom,
 		from(#fdff73),
 		to(#face55));
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	border: 3px solid #000000;
-	-moz-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.7);
-	-webkit-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.7);
-	box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 1px rgba(255,255,255,0.7);
-	text-shadow:
-		0px -1px 0px rgba(000,000,000,0.4),
-		0px 1px 0px rgba(255,255,255,0.3);
 }
 
 
