@@ -31,7 +31,7 @@ function onPageLoaded(){
   modalWin.createDownloadButton({
     "buttonClass": "BookDownloadBtn",
     "container"  : document.getElementsByClassName("page_description")[0] ,
-    "buttonTitle": "一括ダウンロード"
+    "buttonTitle": "一括ダウンロード",
     "downloadInfo": function(){
       return new Promise((resolve,reject)=>{
         console.log("createBookInfoList :call");
