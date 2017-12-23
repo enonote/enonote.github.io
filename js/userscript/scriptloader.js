@@ -157,3 +157,4 @@ class ScriptLoader {
 	  });
 	}
 }
+scriptLoader = new ScriptLoader();
