@@ -54,7 +54,7 @@ FunctionQueue.prototype.exec = function(){
 // ----------------------------------------------------------------------------
 var ScriptLoader = function(){
 	console.log("ScriptLoader initialize start");
-	this.queue = new _FunctionQueue();
+	this.queue = new FunctionQueue();
 	console.log("ScriptLoader initialize end");
 }
 ScriptLoader.prototype.loadScript = function(src){
