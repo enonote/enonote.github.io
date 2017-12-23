@@ -30,7 +30,8 @@ function onPageLoaded(){
   let modalWin = new DownloadModalWindow();
   modalWin.createDownloadButton({
     "buttonClass": "BookDownloadBtn",
-    "container"  : document.getElementById("sorttab2").parentElement ,
+    "container"  : document.getElementsByClassName("page_description")[0] ,
+    "buttonTitle": "一括ダウンロード"
     "downloadInfo": function(){
       return new Promise((resolve,reject)=>{
         console.log("createBookInfoList :call");
@@ -50,8 +51,7 @@ function createBookInfoList(){
   let dfd = $.Deferred();
   
   // HTMLを解析してBookInfoオブジェクトを作成
-  let bookInfoList = [];
-  bookInfoList.push(BookListUtil.parseViewerButton());
+  let bookInfoList = BookListUtil.parseListContainer();
   console.log(bookInfoList);
   let dfdArr = [];
   for( let i=0 ; i<bookInfoList.length ; i++ ){
