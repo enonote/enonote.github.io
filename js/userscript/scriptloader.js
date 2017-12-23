@@ -55,7 +55,9 @@ class _FunctionQueue {
 // ----------------------------------------------------------------------------
 class ScriptLoader {
 	constructor() {
+		console.log("ScriptLoader initialize start");
 		this.queue = new _FunctionQueue();
+		console.log("ScriptLoader initialize end");
 	}
 
 	// ------------------------------------------
