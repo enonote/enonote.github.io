@@ -37,7 +37,10 @@ function onPageLoaded(){
     "container"  : document.getElementById("sorttab2") ,
     "downloadInfo": function(){
       return new Promise((resolve,reject)=>{
+        console.log("createBookInfoList :call");
         createBookInfoList().done(function(data){
+          console.log("createBookInfoList :done");
+          console.log(data);
           resolve( ObjectConverter.convertBookInfoToDownloadInfo(data) );
         }).fail(function(){
           reject();
