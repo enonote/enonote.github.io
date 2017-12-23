@@ -7,6 +7,7 @@
  *   + ListItem
  *       + ItemDetail : 行の詳細
  */
+const PTN_HREF_BOOKID = { "pattern": /.*?p=(.*)/ ,"index": 1 };
 var BookListUtil = (function(){
   return {
     // リストコンテナを解析し、BookInfoの配列を返す
