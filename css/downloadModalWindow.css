@@ -1,0 +1,14 @@
+.modalWinBtn{
+  width:100px;
+  height:30px;
+  border:solid 1px;
+}
+
+.modal {
+  display: none;
+  width: 500px;
+  height: 400px;
+  padding: 10px 20px;
+  background: #FFF;
+  overflow:auto;
+}
