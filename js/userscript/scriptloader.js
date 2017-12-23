@@ -138,7 +138,7 @@ class ScriptLoader {
       });
       setTimeout(function(){
         reject("  reject: " + (elm.getAttribute("src") || elm.getAttribute("href") ));
-      },1000);
+      },3000);
 
       let tagName = elm.tagName.toLowerCase();
       let tags = document.getElementsByTagName(tagName);
