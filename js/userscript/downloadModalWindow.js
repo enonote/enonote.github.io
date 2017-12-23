@@ -231,17 +231,17 @@ class ObjectConverter{
 
   // BookInfo ⇒ DownloadInfo 変換
   static convertBookInfoToDownloadInfo(obj){
-    consnole.log("convertBookInfoToDownloadInfo :start");
-    consnole.log(obj);
+    console.log("convertBookInfoToDownloadInfo :start");
+    console.log(obj);
     if( obj instanceof Array ){
-      consnole.log("convertBookInfoToDownloadInfo :type Array");
+      console.log("convertBookInfoToDownloadInfo :type Array");
       let list = [];
       for( let i=0 ; i<obj.length ; i++ ){
-        consnole.log(obj[i]);
+        console.log(obj[i]);
         list.push( this.convertBookInfoToDownloadInfo(obj[i]) );
       }
-      consnole.log("convertBookInfoToDownloadInfo :return");
-      consnole.log(list);
+      console.log("convertBookInfoToDownloadInfo :return");
+      console.log(list);
       return list;
     }else{
       let groupName = FileNameFormatter.titleFormatting(obj.bookTitle);
