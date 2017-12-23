@@ -29,7 +29,7 @@ bootstrap().then(()=>{
 },()=>{});
 
 
-// ƒy[ƒW“Ç‚Ýž‚ÝŠ®—¹Žž‚ÉŽÀs‚·‚éˆ—
+// ãƒšãƒ¼ã‚¸èª­ã¿è¾¼ã¿å®Œäº†æ™‚ã«å®Ÿè¡Œã™ã‚‹å‡¦ç†
 function onPageLoaded(){
   let modalWin = new DownloadModalWindow();
   modalWin.createDownloadButton({
@@ -50,7 +50,7 @@ function createBookInfoList(){
   
   let dfd = $.Deferred();
   
-  // HTML‚ð‰ðÍ‚µ‚ÄBookInfoƒIƒuƒWƒFƒNƒg‚ðì¬
+  // HTMLã‚’è§£æžã—ã¦BookInfoã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
   let bookInfoList = [];
   bookInfoList.push(BookListUtil.parseViewerButton());
   console.log(bookInfoList);
@@ -60,7 +60,7 @@ function createBookInfoList(){
   }
   
   $.when.apply($,dfdArr).then(function(){
-    console.log("DEBUG: bookInfoList‚Ìresolve‚ªŠ®—¹");
+    console.log("DEBUG: bookInfoListã®resolveãŒå®Œäº†");
     dfd.resolve(bookInfoList);
   });
   

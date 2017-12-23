@@ -1,16 +1,16 @@
 /*
  * BookListUtil
- * ˆÈ‰º‚Ì\‘¢‚ÌHTML‚ğ‰ğÍ‚µABookInfo‚Ì”z—ñ‚ğ•Ô‚·
+ * ä»¥ä¸‹ã®æ§‹é€ ã®HTMLã‚’è§£æã—ã€BookInfoã®é…åˆ—ã‚’è¿”ã™
  * 
- * ListContainer      : ŒŸõŒ‹‰ÊƒŠƒXƒg
- *   + ListItem       : ŒŸõŒ‹‰Ê‚Ìs
+ * ListContainer      : æ¤œç´¢çµæœãƒªã‚¹ãƒˆ
+ *   + ListItem       : æ¤œç´¢çµæœã®è¡Œ
  *   + ListItem
- *       + ItemDetail : s‚ÌÚ×
+ *       + ItemDetail : è¡Œã®è©³ç´°
  */
 var BookListUtil = (function(){
   var PTN_HREF_BOOKID = { "pattern": /.*?p=(.*)/ ,"index": 1 };
   return {
-    // ƒŠƒXƒgƒRƒ“ƒeƒi‚ğ‰ğÍ‚µABookInfo‚Ì”z—ñ‚ğ•Ô‚·
+    // ãƒªã‚¹ãƒˆã‚³ãƒ³ãƒ†ãƒŠã‚’è§£æã—ã€BookInfoã®é…åˆ—ã‚’è¿”ã™
     parseListContainer: function(){
       let bookInfoList = [];
       for( listItem of getListItems( getListContainer() )){
@@ -19,7 +19,7 @@ var BookListUtil = (function(){
       }
       return bookInfoList;
     }
-    // ƒrƒ…ƒ[ƒ{ƒ^ƒ“‚©‚çBookInfo‚ğì¬‚·‚é
+    // ãƒ“ãƒ¥ãƒ¯ãƒ¼ãƒœã‚¿ãƒ³ã‹ã‚‰BookInfoã‚’ä½œæˆã™ã‚‹
     ,parseViewerButton: function(){
       let bookInfo = new BookInfo();
 
@@ -42,7 +42,7 @@ var BookListUtil = (function(){
         if( r ){
           return r[PTN_HREF_BOOKID.index];
         }else{
-          console.log("ERROR: BookId ‚Ìæ“¾‚É¸”s");
+          console.log("ERROR: BookId ã®å–å¾—ã«å¤±æ•—");
           return "";
         }
       }
@@ -56,27 +56,27 @@ var BookListUtil = (function(){
     }
   };
 
-  // ƒŠƒXƒgƒRƒ“ƒeƒiæ“¾
+  // ãƒªã‚¹ãƒˆã‚³ãƒ³ãƒ†ãƒŠå–å¾—
   function getListContainer(){
     // let container = document.getElementById("result");
     let container = document.getElementsByClassName("list-group")[0];
 
     if( container == null ){
-      console.log("ERROR: container‚ªnull");
+      console.log("ERROR: containerãŒnull");
     }
     return container;
   }
   
-  // ƒŠƒXƒg‚ğ”z—ñ‚Åæ“¾
+  // ãƒªã‚¹ãƒˆã‚’é…åˆ—ã§å–å¾—
   function getListItems(elmContainer){
     let listItems = elmContainer.getElementsByTagName("a");
     if( listItems == null ){
-      console.log("ERROR: listItems‚ªnull");
+      console.log("ERROR: listItemsãŒnull");
     }
     return listItems;
   }
   
-  // –¾×‚©‚çBookInfoî•ñ‚ğì¬
+  // æ˜ç´°ã‹ã‚‰BookInfoæƒ…å ±ã‚’ä½œæˆ
   function getItemDetail(elmListItem){
     
     let bookInfo = new BookInfo();
@@ -86,25 +86,25 @@ var BookListUtil = (function(){
 
     return bookInfo;
 
-    // BookId‚ğ’Šo
+    // BookIdã‚’æŠ½å‡º
     function getBookId(elmListItem){
       let href = elmListItem.getAttribute("href");
       let r = href.match(PTN_HREF_BOOKID.pattern);
       if( r ){
         return r[PTN_HREF_BOOKID.index];
       }else{
-        console.log("ERROR: BookId ‚Ìæ“¾‚É¸”s");
+        console.log("ERROR: BookId ã®å–å¾—ã«å¤±æ•—");
         return "";
       }
     }
-    // ƒ^ƒCƒgƒ‹‚ğæ“¾
+    // ã‚¿ã‚¤ãƒˆãƒ«ã‚’å–å¾—
     function getBookTitle(elmListItem){
       let elms = elmListItem.getElementsByClassName("media-heading");
       if( elms.length > 0 ){
         let title = elms[0].textContent;
         return title.trim();
       }else{
-        console.log("ERROR: BookTitle ‚Ìæ“¾‚É¸”s");
+        console.log("ERROR: BookTitle ã®å–å¾—ã«å¤±æ•—");
         return "";
       }
     }

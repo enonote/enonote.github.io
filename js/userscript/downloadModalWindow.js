@@ -1,13 +1,13 @@
 // ----------------------------------------------------------------------------
-// ƒ_ƒEƒ“ƒ[ƒhƒ|ƒbƒvƒAƒbƒviƒ‚[ƒ_ƒ‹ƒEƒCƒ“ƒhƒE”Åj
+// ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ï¼ˆãƒ¢ãƒ¼ãƒ€ãƒ«ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ç‰ˆï¼‰
 // ----------------------------------------------------------------------------
-// [ˆË‘¶ƒ‚ƒWƒ…[ƒ‹]
+// [ä¾å­˜ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«]
 // jquery-2.2.4.min.js
 // jquery.leanModal.min.js
 // leanmodal.css
 // 
-// [ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”]
-// ‚È‚µ
+// [ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°]
+// ãªã—
 // 
 // ----------------------------------------------------------------------------
 class FileInfo {
@@ -60,15 +60,15 @@ class DownloadModalWindow {
   }
   
   // ------------------------------------------
-  // ƒ_ƒEƒ“ƒ[ƒhƒ{ƒ^ƒ“‚ğì¬‚·‚é
+  // ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ãƒœã‚¿ãƒ³ã‚’ä½œæˆã™ã‚‹
   // ------------------------------------------
-  // [ˆø”]
-  // param : ƒpƒ‰ƒ[ƒ^ƒIƒuƒWƒFƒNƒg
-  //   container : ƒ{ƒ^ƒ“‚ğ‘}“ü‚·‚éElement
-  //   action    : ƒ{ƒ^ƒ“‚ğ‰Ÿ‰º‚µ‚½‚Ìˆ—
+  // [å¼•æ•°]
+  // param : ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+  //   container : ãƒœã‚¿ãƒ³ã‚’æŒ¿å…¥ã™ã‚‹Element
+  //   action    : ãƒœã‚¿ãƒ³ã‚’æŠ¼ä¸‹ã—ãŸæ™‚ã®å‡¦ç†
   // 
-  // [•Ô’l]
-  // ‚È‚µ
+  // [è¿”å€¤]
+  // ãªã—
   // 
   // ------------------------------------------
   createDownloadButton(param){
@@ -196,16 +196,16 @@ class DownloadModalWindow {
 }
 
 // ----------------------------------------------------------------------------
-// ƒIƒuƒWƒFƒNƒg•ÏŠ·ƒNƒ‰ƒX
+// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå¤‰æ›ã‚¯ãƒ©ã‚¹
 // ----------------------------------------------------------------------------
-// [ˆË‘¶ƒ‚ƒWƒ…[ƒ‹]
+// [ä¾å­˜ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«]
 // class FileNameFormatter
 // class BookInfo
 // class DownloadInfo
 // class FileInfo
 // 
-// [ƒRƒ“ƒXƒgƒ‰ƒNƒ^ˆø”]
-// ‚È‚µ
+// [ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å¼•æ•°]
+// ãªã—
 // 
 // ----------------------------------------------------------------------------
 class FileNameFormatter{
@@ -218,9 +218,9 @@ class FileNameFormatter{
     return result;
 
     function toHalfChar(str){
-      return str.replace(/[‚`-‚y‚-‚š‚O-‚X]/g, function(s) {
+      return str.replace(/[ï¼¡-ï¼ºï½-ï½šï¼-ï¼™]/g, function(s) {
         return String.fromCharCode(s.charCodeAt(0) - 65248);
-      }).replace(/@/g," ").replace(/[iy]/g,"(").replace(/[jz]/g,")");
+      }).replace(/ã€€/g," ").replace(/[ï¼ˆã€]/g,"(").replace(/[ï¼‰ã€‘]/g,")");
     }
     function removeSpace(str){
       return str.replace(/\s+/g," ").trim();
@@ -229,7 +229,7 @@ class FileNameFormatter{
 }
 class ObjectConverter{
 
-  // BookInfo Ë DownloadInfo •ÏŠ·
+  // BookInfo â‡’ DownloadInfo å¤‰æ›
   static convertBookInfoToDownloadInfo(obj){
     if( obj instanceof Array ){
       let list = [];
