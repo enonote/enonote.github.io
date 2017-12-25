@@ -76,10 +76,11 @@ class BookInfo {
       var datas = $.ajax({
             type: 'GET',
             datatype: 'html',
-            url: "http://mangamura.org/kai_pc_viewer?p=" + bookId
+            url: "http://mangamura.org/",
+            p: bookId
         }).done(function(data){
             console.log("DEBUG: _getRequestKey done");
-            parseViewerPage(data,bookId).done(function(obj){
+            parseBookPage(data,bookId).done(function(obj){
                 dfd.resolve(obj.key);
             }).fail(function(){
                 console.log("ERROR：リクエストキーの取得に失敗");
@@ -93,6 +94,60 @@ class BookInfo {
 
         return dfd.promise();
 
+        function parseBookPage(htmlStr,bookId){
+          var dfd = $.Deferred();
+
+          let r = htmlStr.match(/"authview"\s*,\s*"(.*?)"/m);
+          let auth = "";
+          if( r ){
+            auth = r[1];
+            console.log("DEBUG: auth = "+auth);
+            $.cookie("authview", auth , { expires: 7 });
+          }else{
+            console.log("ERROR: parseBookPage authキー取得失敗");
+            dfd.reject();
+            return;
+          }
+          
+          $.ajax({
+            url: "http://mangamura.org/pages/getxb",
+            type: 'get',
+            dataType: 'text',
+            contentType: 'application/json; charset=utf-8',
+            scriptCharset: 'utf-8',
+            data:{
+              wp_id: bookId
+            }
+          }).done(function(data){
+            console.log("DEBUG: parseBookPage done");
+
+            // データチェック
+            var r = data.match(/([A-z0-9]{13,13})/);
+            console.log(r);
+            if( r ){
+              dfd.resolve({"id": bookId, "key": data});
+            }else{
+              console.log("ERROR: parseBookPage データチェックエラー");
+              dfd.reject();
+            }
+            
+          }).fail(function(){
+            console.log("DEBUG: parseBookPage リクエストキーの取得に失敗");
+            dfd.reject();
+          });
+
+          // 10秒でタイムアウト
+          setTimeout(function(){
+            if( dfd.state() == "pending" ){
+              alert("ERROR: parseBookPage リクエストがタイムアウト");
+              dfd.resolve();
+            }
+          },1000*60);
+          
+          return dfd.promise();
+
+        }
+        
         // 取得したHTMLからKEYを抽出
         function parseViewerPage(htmlStr,bookId){
           var dfd = $.Deferred();
