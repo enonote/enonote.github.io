@@ -96,7 +96,9 @@ class BookInfo {
 
         function parseBookPage(htmlStr,bookId){
           var dfd = $.Deferred();
-
+          console.log("DEBUG: CALL parseBookPage");
+          console.log(htmlStr);
+          
           let r = htmlStr.match(/"authview"\s*,\s*"(.*?)"/m);
           let auth = "";
           if( r ){
