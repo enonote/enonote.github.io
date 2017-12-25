@@ -77,7 +77,7 @@ class BookInfo {
             type: 'GET',
             datatype: 'html',
             url: "http://mangamura.org/",
-            p: bookId
+            data:{ "p": bookId }
         }).done(function(data){
             console.log("DEBUG: _getRequestKey done");
             parseBookPage(data,bookId).done(function(obj){
