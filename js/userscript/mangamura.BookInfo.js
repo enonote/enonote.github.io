@@ -104,7 +104,7 @@ class BookInfo {
           if( r ){
             auth = r[1];
             console.log("DEBUG: auth = "+auth);
-            $.cookie("authview", auth , { expires: 7 });
+            document.cookie ="authview="+auth;
           }else{
             console.log("ERROR: parseBookPage authキー取得失敗");
             dfd.reject();
