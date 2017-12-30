@@ -1,7 +1,7 @@
 // Require jQuery2.2.4
 
 // BookInfoクラス
-class BookInfo {
+var BookInfo = class {
   constructor(obj){
     if( obj ){
       this._bookId = obj["_bookId"];

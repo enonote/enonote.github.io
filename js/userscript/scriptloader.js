@@ -5,7 +5,7 @@
 // なし
 // 
 // ----------------------------------------------------------------------------
-class _FunctionQueue {
+var _FunctionQueue = class {
   constructor() {
     this.list = [];
     this.processing = false;
@@ -53,7 +53,7 @@ class _FunctionQueue {
 //   });
 // 
 // ----------------------------------------------------------------------------
-class ScriptLoader {
+var ScriptLoader = class {
   constructor() {
     this.queue = new _FunctionQueue();
   }

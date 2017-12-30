@@ -10,7 +10,7 @@
 // なし
 // 
 // ----------------------------------------------------------------------------
-class FileInfo {
+var FileInfo = class {
   constructor(name,url){
     this._name = name;
     this._url  = url;
@@ -28,7 +28,7 @@ class FileInfo {
     this._url = url;
   }
 }
-class DownloadInfo {
+var DownloadInfo = class {
   constructor(param){
     param = ( param || {} );
     this._groupName = ( param["groupName"] || "" );
@@ -50,7 +50,7 @@ class DownloadInfo {
     this._files.push(new FileInfo(name,url));
   }
 }
-class DownloadModalWindow {
+var DownloadModalWindow = class {
 
   constructor(param){
     param = ( param || {} );
@@ -215,7 +215,7 @@ class DownloadModalWindow {
 // なし
 // 
 // ----------------------------------------------------------------------------
-class FileNameFormatter{
+var FileNameFormatter = class {
   static saveFileNameFormatting(title,seq,ext){
     return title + "_" + (("0000" + seq).slice(-4)) + ext;
   }
@@ -234,7 +234,7 @@ class FileNameFormatter{
     }
   }
 }
-class ObjectConverter{
+var ObjectConverter = class {
 
   // BookInfo ⇒ DownloadInfo 変換
   static convertBookInfoToDownloadInfo(obj){
