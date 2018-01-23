@@ -28,9 +28,11 @@ bootstrap().then(()=>{
 // ページ読み込み完了時に実行する処理
 function onPageLoaded(){
   let modalWin = new DownloadModalWindow();
+  let container = document.getElementsByClassName("entry-title");
+  container = ( container.length > 0 ? container[0] : document.getElementById("contentInner") );
   modalWin.createDownloadButton({
     "buttonClass": "BookDownloadBtn",
-    "container"  : document.getElementsByClassName("entry-title")[0] ,
+    "container"  : container,
     "buttonTitle": "一括ダウンロード",
     "downloadInfo": function(){
       return new Promise((resolve,reject)=>{
