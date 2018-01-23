@@ -53,7 +53,7 @@ var BookInfo = class {
     let that = this;
     
     _getFileList(that.bookId ,that.bookCategory ,that.bookTitle).done(function(fileList){
-      that.fileUrlList.push(fileUrl);
+      that.fileUrlList = fileList;
       dfd.resolve();
     }).fail(function(){
       dfd.resolve();
