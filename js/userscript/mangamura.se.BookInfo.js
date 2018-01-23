@@ -79,16 +79,13 @@ var BookInfo = class {
             url: "http://mangamura.se/"+category+"/"+encodeURI(title)
         }).done(function(data){
             console.log("DEBUG: _getFileList done");
-            parseBookPage(data).done(function(obj){
-                let fileUrlList = [];
-                for(let i=1 ; i <= obj.page ;i++){
-                  fileUrlList.push("http://comic1.mangamura.se/"+bookId+"/"+ (("0000" + i).slice(-4)) +".jpg");
-                }
-                dfd.resolve(fileUrlList);
-            }).fail(function(){
-                console.log("ERROR：リクエストキーの取得に失敗");
-                dfd.reject();
-            });
+            let obj = parseBookPage(data);
+            let fileUrlList = [];
+            for(let i=1 ; i <= obj.page ;i++){
+              fileUrlList.push("http://comic1.mangamura.se/"+bookId+"/"+ (("0000" + i).slice(-4)) +".jpg");
+            }
+            dfd.resolve(fileUrlList);
+
         }).fail(function(){
             console.log("ERROR：ビュワーの取得に失敗");
             dfd.reject();
