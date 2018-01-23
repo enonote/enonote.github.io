@@ -46,6 +46,9 @@ var BookInfo = class {
   get fileUrlList(){
     return this._fileUrlList;
   }
+  set fileUrlList(fileUrlList){
+    this._fileUrlList = fileUrlList;
+  }
   
   // BookIdからファイルのURLを取得
   resolveFileUrl(){
