@@ -103,6 +103,7 @@ var BookInfo = class {
           console.log(htmlStr);
           
           let r = htmlStr.match(/<span class=\"book_max_num\">(.*?)<\/span>/m);
+          console.log(r);
           if( r ){
             page = r[1];
             console.log("DEBUG: page = "+page);
