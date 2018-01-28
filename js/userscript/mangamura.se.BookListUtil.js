@@ -24,20 +24,23 @@ var BookListUtil = (function(){
       
       console.log(url);
       
-      let m = url.match("http://mangamura.se/.*/(.*?)/")
+      let m = url.match("/http://mangamura.se/.*/(.*?)/")
+      console.log(m);
       if( m ){
           bookInfo.bookTitle = m[1];
       }
       console.log(bookInfo);
 
       m = url.match("http://mangamura.se/(.*?)/.*/");
+      console.log(m);
       if( m ){
           bookInfo.bookCategory = m[1];
       }
       console.log(bookInfo);
 
       let c = document.getElementById("book_current_page");
-      m = c.getAttribute("src").match(/background:url\('http:\/\/image1\.mangamura\.se\/(.*?)\.jpg'\)/);
+      m = c.getAttribute("src").match(/http:\/\/comic1\.mangamura\.se\/(.*?)\.jpg/);
+      console.log(m);
       if( m ){
           bookInfo.bookId = m[1];
       }
