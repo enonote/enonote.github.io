@@ -15,6 +15,8 @@ var BookListUtil = (function(){
       return bookInfoList;
     },
     createBookInfo: function(){
+      console.log("call createBookInfo");
+
       let bookInfoList = [];
       let bookInfo = new BookInfo();
 
