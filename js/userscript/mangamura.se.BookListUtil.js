@@ -39,7 +39,7 @@ var BookListUtil = (function(){
       console.log(bookInfo);
 
       let c = document.getElementById("book_current_page");
-      m = c.getAttribute("src").match(/http:\/\/comic1\.mangamura\.se\/.*\/(.*?)\.jpg/);
+      m = c.getAttribute("src").match(/http:\/\/comic1\.mangamura\.se\/(.*)\/.*?\.jpg/);
       console.log(m);
       if( m ){
           bookInfo.bookId = m[1];
