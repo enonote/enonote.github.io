@@ -27,7 +27,7 @@ var BookListUtil = (function(){
       let m = url.match("http://mangamura.se/.*/(.*?)/");
       console.log(m);
       if( m ){
-          bookInfo.bookTitle = m[1];
+          bookInfo.bookTitle = decodeURI(m[1]);
       }
       console.log(bookInfo);
 
