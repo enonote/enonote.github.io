@@ -12,8 +12,8 @@ bootstrap().then(()=>{
   let loader = new ScriptLoader();
   loader.loadScript("https://code.jquery.com/jquery-2.2.4.min.js");
   loader.loadScript("https://enonote.github.io/js/jquery.leanModal.min.js");
-  loader.loadScript("https://enonote.github.io/js/userscript/mangamura.se.BookInfo.js");
-  loader.loadScript("https://enonote.github.io/js/userscript/mangamura.se.BookListUtil.js");
+  loader.loadScript("https://enonote.github.io/js/userscript/mangamura.se.BookInfo.js",true);
+  loader.loadScript("https://enonote.github.io/js/userscript/mangamura.se.BookListUtil.js",true);
   loader.loadScript("https://enonote.github.io/js/userscript/downloadModalWindow.js");
 
   loader.loadCss("https://enonote.github.io/css/leanmodal.css");
@@ -36,7 +36,7 @@ function onPageLoaded(){
   modalWin.createDownloadButton({
     "buttonClass": "BookDownloadBtn",
     "container"  : elmBookPageBox,
-    "buttonTitle": "一括ダウンロード",
+    "buttonTitle": "ダウンロード",
     "downloadInfo": function(){
       return new Promise((resolve,reject)=>{
         console.log("createBookInfoList :call");
@@ -51,7 +51,7 @@ function onPageLoaded(){
     }
   });
 }
-function createBookInfoList(){
+function createBookInfo(){
   
   let dfd = $.Deferred();
   

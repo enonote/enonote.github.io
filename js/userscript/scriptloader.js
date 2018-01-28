@@ -68,7 +68,10 @@ var ScriptLoader = class {
   // なし
   // 
   // ------------------------------------------
-  loadScript(src){
+  loadScript(src,ignoreCache){
+    if( ignoreCache ){
+      src += "?t="+Date.now();
+    }
     let elm = document.createElement("script");
     elm.setAttribute("src",src);
     this.queue.push(this._insertTag,elm);
@@ -85,7 +88,10 @@ var ScriptLoader = class {
   // なし
   // 
   // ------------------------------------------
-  loadCss(src){
+  loadCss(src,ignoreCache){
+    if( ignoreCache ){
+      src += "?t="+Date.now();
+    }
     let elm = document.createElement("link");
     elm.setAttribute("rel","stylesheet");
     elm.setAttribute("href",src);
