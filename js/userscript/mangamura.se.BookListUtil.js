@@ -20,11 +20,11 @@ var BookListUtil = (function(){
       let bookInfoList = [];
       let bookInfo = new BookInfo();
 
-      let url = window.location;
+      let url = String(window.location);
       
       console.log(url);
       
-      let m = url.match("/http://mangamura.se/.*/(.*?)/")
+      let m = url.match("http://mangamura.se/.*/(.*?)/");
       console.log(m);
       if( m ){
           bookInfo.bookTitle = m[1];
