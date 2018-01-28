@@ -19,20 +19,27 @@ var BookListUtil = (function(){
       let bookInfo = new BookInfo();
 
       let url = window.location;
+      
+      console.log(url);
+      
       let m = url.match("http://mangamura.se/.*/(.*?)/")
       if( m ){
           bookInfo.bookTitle = m[1];
       }
+      console.log(bookInfo);
+
       m = url.match("http://mangamura.se/(.*?)/.*/");
       if( m ){
           bookInfo.bookCategory = m[1];
       }
+      console.log(bookInfo);
 
       let c = document.getElementById("book_current_page");
       m = c.getAttribute("src").match(/background:url\('http:\/\/image1\.mangamura\.se\/(.*?)\.jpg'\)/);
       if( m ){
           bookInfo.bookId = m[1];
       }
+      console.log(bookInfo);
 
       bookInfoList.push(bookInfo);
       
