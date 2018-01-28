@@ -13,6 +13,30 @@ var BookListUtil = (function(){
         bookInfoList.push(bookInfo);
       }
       return bookInfoList;
+    },
+    createBookInfo: function(){
+      let bookInfoList = [];
+      let bookInfo = new BookInfo();
+
+      let url = window.location;
+      let m = url.match("http://mangamura.se/.*/(.*?)/")
+      if( m ){
+          bookInfo.bookTitle = m[1];
+      }
+      m = url.match("http://mangamura.se/(.*?)/.*/");
+      if( m ){
+          bookInfo.bookCategory = m[1];
+      }
+
+      let c = document.getElementById("book_current_page");
+      m = c.getAttribute("src").match(/background:url\('http:\/\/image1\.mangamura\.se\/(.*?)\.jpg'\)/);
+      if( m ){
+          bookInfo.bookId = m[1];
+      }
+
+      bookInfoList.push(bookInfo);
+      
+      return bookInfoList;
     }
   };
 
